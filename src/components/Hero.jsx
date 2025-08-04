@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../assets/profile.png";
+import profile from "../assets/profile.jpg";
 import { TypeAnimation } from "react-type-animation";
 import ShinyEffect from "./ShinyEffect";
 import pdf from "../pdf/aman_resume.pdf";
@@ -111,12 +111,16 @@ const Hero = () => {
 
         <motion.img
           src={profile}
-          className="w-[300px] md:w-[450px]"
+          className="w-60 h-60 md:w-80 md:h-80 rounded-full object-cover object-top"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         />
+
+
+
+
       </div>
 
       {/* <motion.div
