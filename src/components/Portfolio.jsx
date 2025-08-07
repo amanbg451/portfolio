@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 import Reveal from "./Reveal";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -11,8 +12,41 @@ import project2 from "../assets/project-2.png";
 import project3 from "../assets/project-3.png";
 import project4 from "../assets/project-4.png";
 import project5 from "../assets/project-5.png";
+import maulee from "../assets/maulee.png"
+import vc from "../assets/vc.png"
+import va from "../assets/va.jpeg"
 
 const projects = [
+  {
+    img: va,
+    title: "Virtual Assistant",
+    description: "Developed a responsive and intuitive frontend UI for an AI-powered virtual assistant platform, focusing on usability, voice interaction integration, and modular component architecture using React, Tailwind, and Vite.",
+    tech: ["React", "Tailwind", "Vite", "MongoDB", "Express", "NodeJs", "JavaScript"],
+    links: {
+      site: "https://virtualassistant-cf35.onrender.com/",
+      github: "",
+    },
+  },
+  {
+    img: maulee,
+    title: "Maulee Foundation",
+    description: "Built a sleek and accessible website for a non-profit organization to promote their mission, events, and donation activities. Implemented responsive layouts, reusable UI components, and integrated animations to enhance user engagement.",
+    tech: ["NextJs", "TailwindCSS", "Typecript", "Postman", "ShadCN"],
+    links: {
+      site: "https://maulee.org/",
+      github: "",
+    },
+  },
+  {
+    img: vc,
+    title: "VC Talent Pool",
+    description: "Engineered a dynamic dashboard interface for managing talent profiles and VC applications. Focused on performance optimization, secure routing, and clean UI using React and Tailwind, deployed internally for organizational use.",
+    tech: ["NextJs", "TailwindCSS", "Typecript", "Postman", "ShadCN"],
+    links: {
+      site: "https://vc-talent.baseel.com/dashboard",
+      github: "",
+    },
+  },
   {
     img: project1,
     title: "Food Delivery Website",
@@ -68,9 +102,16 @@ const projects = [
 const Portfolio = () => {
   return (
     <div className="max-w-[1000px] mx-auto px-6 md:my-20" id="portfolio">
-      <h2 className="text-3xl font-bold text-gray-200 mb-12 text-center">
-        Projects
-      </h2>
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-bold text-center text-white mb-16 relative"
+      >
+        <span className="inline-block border-b-4 border-purple-500 pb-2">
+          Projects
+        </span>
+      </motion.h2>
 
       {/* Mobile Swiper */}
       <div className="md:hidden">
@@ -145,9 +186,8 @@ const Portfolio = () => {
         {projects.map((project, index) => (
           <Reveal key={index}>
             <div
-              className={`flex flex-col md:flex-row items-center gap-8 mb-16 ${
-                index % 2 !== 0 ? "md:flex-row-reverse" : ""
-              }`}
+              className={`flex flex-col md:flex-row items-center gap-8 mb-16 ${index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                }`}
             >
               <div className="relative group w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
                 <img
